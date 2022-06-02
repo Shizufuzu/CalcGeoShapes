@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>Calculate your geometrical Shape</h1>
+        <br>  
+        <form>
+            <label for ="geoShapesList">Choose a geometrical Shape</label>
+            <select name="geoShapesList" id="geoShapesList">
+                <optgroup label="2D">
+                    <option value="" selected disabled hidden>Choose Shape</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="square">Square</option>
+                    <option value="pentagon">Pentagon</option>
+                </optgroup>
+            </select>
+            <br>
+
+
+
+            <br>
+            <input type="button" value="Calculate!" onclick="CalculateShapes();"/>
+        </form>
+        <form id="triangleSelected" style="display: none;">
+            <label> Please input all 3 side lengths</label>
+            <input type="text" id="trSide1" required>
+            <input type="text" id="trSide2" required>
+            <input type="text" id="trSide3" required>
+        </form>
+
+        <form id="squareSelected" style="display: none;">
+            <label> Please input all 4 side lengths</label>
+            <input type="text" id="sqSide1" required>
+            <input type="text" id="sqSide2" required>
+            <input type="text" id="sqSide3" required>
+            <input type="text" id="sqSide4" required>
+        </form>
+
+        <form id="pentagonSelected" style="display: none;">
+            <label> Please input all 5 side lengths</label>
+            <input type="text" id="peSide1" required>
+            <input type="text" id="peSide2" required>
+            <input type="text" id="peSide3" required>
+            <input type="text" id="peSide4" required>
+            <input type="text" id="peSide5" required>
+        </form>
+ 
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                document    
+                    .getElementById('geoShapesList')
+                    .addEventListener('input', handleSelect);
+            });
+
+            function handleSelect(ev) {
+                var select = ev.target; // like getElementByID('geoShapesList')
+                console.log(select.value);
+                switch (select.Value) {
+                    case "triangle":
+                        document.getElementById("triangleSelected").style.display="block";
+                        break;
+                    case "square":
+                        document.getElementById("squareSelected").style.display="block";
+                        break;
+                    case "pentagon":
+                        document.getElementById("pentagonSelected").style.display="block";
+                        break;
+                    default:
+                    document.getElementById("triangleSelected").style.display="none";
+                }
+            }
+
+        </script>
+
+
+        <script src="js/shapes.js"></script>
+    </body>
+</html>
