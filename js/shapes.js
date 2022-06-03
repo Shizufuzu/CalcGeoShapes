@@ -34,8 +34,9 @@ function calculateShapes() {
             sides.a = document.getElementById('trSide1').value;
             sides.b = document.getElementById('trSide2').value;
             sides.c = document.getElementById('trSide3').value;
-            sides.s = (sides.a + sides.b + sides.c) / 2;
+            sides.s = (Number(sides.a) + Number(sides.b) + Number(sides.c)) / 2;
             console.log(sides.s);
+            sides.area = Math.sqrt(sides.s * (sides.s - Number(sides.a)) * (sides.s - Number(sides.b)) * (sides.s - Number(sides.c)));
             //sides.area = Math.sqrt(s * (s - Number(sides.a)) * (s - Number(sides.b)) * (s - Number(sides.c)));
             break;
         case "square":
