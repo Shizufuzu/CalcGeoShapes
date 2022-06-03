@@ -16,10 +16,8 @@
                     <option value="square">Square</option>
                 </optgroup>
             </select>
-            <br>
-
         </form>
-
+        <br>
         <form id="triangleSelected" style="display: none;">
             <label> Please input all 3 sidelengths</label>
             <input type="text" id="trSide1" placeholder="a" required>
@@ -32,60 +30,11 @@
             <input type="text" id="sqSide1" placeholder="a" required>
             <input type="text" id="sqSide2" placeholder="b" required>
         </form>
-
+        <br>
         <input type="button" value="Calculate!" onclick="calculateShapes();"/>
         
         <p id="result"></p>
-
-        <script>
-            var a, b, c, area, select;
-
-            document.addEventListener('DOMContentLoaded', () => {
-                document    
-                    .getElementById('geoShapesList')
-                    .addEventListener('input', handleSelect);
-            });
-
-            function handleSelect(ev) {
-                select = ev.target; // like getElementByID('geoShapesList')
-                switch (select.value) {
-                    case "triangle":
-                        document.getElementById("triangleSelected").style.display="block";
-                        document.getElementById("squareSelected").style.display="none";
-                        break;
-                    case "square":
-                        document.getElementById("squareSelected").style.display="block";
-                        document.getElementById("triangleSelected").style.display="none";
-                        break;
-                    default:
-                    document.getElementById("triangleSelected").style.display="none";
-                    document.getElementById("squareSelected").style.display="none";
-                }
-            }
-
-            function calculateShapes() {
-                switch (select.value) {
-                    case "triangle":
-                        a = document.getElementById('trSide1').value;
-                        b = document.getElementById('trSide2').value;
-                        c = document.getElementById('trSide3').value;
-                        let s = (Number(a) + Number(b) + Number(c)) / 2;
-                        area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-                        break;
-                    case "square":
-                        a = document.getElementById('sqSide1').value;
-                        b = document.getElementById('sqSide2').value;
-                        area = Number(a) * Number(b);
-                        break;
-                    default:
-                        area = NaN;
-                }
-                document.getElementById('result').innerHTML = area + " x²";               
-            }
-
-        </script>
-
-
-        <script src="js/shapes.js"></script>
+        
+        <script src="js/shapes.js" charset="utf-8"></script>
     </body>
 </html>
